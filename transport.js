@@ -32,3 +32,18 @@ function prime_distance(km) {
 }
 
 let prime = primeA + primeD; // La prime est égal à la prime de distance + la prime d'ancienneté.
+
+function accident(acc){
+    if (acc===1){
+        prime = prime/2;
+    }
+    if (acc===2){
+        prime = prime/3;
+    }
+    if (acc===3){
+        prime = prime/4;
+    }
+    if (acc > 3){
+        prime = 0;
+    }
+}
