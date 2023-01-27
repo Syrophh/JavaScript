@@ -46,4 +46,5 @@ function accident(acc){
     if (acc > 3){
         prime = 0;
     }
+    return prime;
 }
