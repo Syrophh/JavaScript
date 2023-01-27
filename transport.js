@@ -1,45 +1,42 @@
-const distance = 0.01, distance_max = 900, ancien_fixe = 300, ancien_up = 30;
-let primeA = 0, primeD = 0;
+const nbMaxAccidents = 3;
+let nbAccidents = parsInt(window.document.querySelector("#num_ancien").value);
+let primeAnnuelle = parsInt(window.document.querySelector("#num_ancien").value);
+window.addEventListener("Nombre d'accidents responsables ?", nbAccidents);
+if (nbAccidents > nbMaxAccidents){
+    primeAnnuelle = 0;
+}
+else{
+    window.addEventListener("Nombre d'année d'ancienneté (aanées révolues) ?", nbAncien);
+    window.addEventListener("Distance parcourue (en km) ?", nbKm);
+    primeAnnuelle = recupPrimeAnnuelle(recupPrimeDist(nbKm), recupPrimeAncien(nbAncien),
+    nbAccidents);
+}
 
 
-
-function prime_ancien(ancien) {
-    if (ancien < 4) { 
-        return(primeA = 0); 
-    } else { 
-        primeA = ancien_fixe;
-
-        if (ancien > 4) { 
-            primeA = ancien_fixe + ((ancien - 4) * ancien_up);
-        }
+function prime_ancien(nb) {
+    const nbAncienMin = 4, primeAncienMin = 300, primeAncienSupp = 30;
+    if (nb >= nbAncienMin){
+        return primeAncienMin + (nb-nbAncienMin) * primeAncienSupp;
     }
-    return primeA; 
+    else{
+        return 0;
+    }
 }
 
 
 
-function prime_distance(km) {
-    primeD = distance * km;
-    if (primeD > 900) { 
-        primeD = 900;
+function prime_distance(nb) {
+    const primeDistMax = 900, primeDistKm = 0.01;
+    indem = nb * primeDistMax;
+    if (indem > primeDistMax) { 
+        return primeDistMax;
     }
-    return primeD; 
+    else{  
+    return indem; 
+    }
 }
 
-let prime = primeA + primeD; 
+function recupPrimeAnnuelle(primeDist, primeAncien, nbAccidents){
 
-function accident(acc){
-    if (acc===1){
-        prime = prime/2;
-    }
-    if (acc===2){
-        prime = prime/3;
-    }
-    if (acc===3){
-        prime = prime/4;
-    }
-    if (acc > 3){
-        prime = 0;
-    }
-    return prime;
+    return (primeDist + primeAncien) / (1 + nbAccidents);
 }
