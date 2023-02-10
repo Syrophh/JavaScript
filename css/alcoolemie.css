@@ -1,0 +1,55 @@
+* {
+    font-family: 'Montserrat'; /* Police par défaut */
+    box-sizing: border-box; /* Les tailles de conteneurs incluent bordures et 
+                               remplissages */
+    margin: 0; /* Mise à 0 des marges externes */
+    padding: 0; /* Mise à 0 des marges internes */
+    text-decoration: none; /* Suppression de la mise en forme habituelle des liens 
+                             (soulignement) */
+}
+
+/* Définition de la police "Montserrat" */
+@font-face{ 
+    font-family: "Montserrat";
+    src: url('polices/Montserrat-Regular.ttf') format("truetype");
+}
+
+body {
+    display: flex; /* Ce conteneur est "flexible" */
+    justify-content: center; /* Les éléments portés sont centrés à l'horizontal */
+    flex-direction: column; /* Les éléments sont empilés */
+    align-items: center; /* Les éléments portés sont centrés à la verticale */
+    width: 100%; /* La page occupe toute la largeur */
+}
+
+header {
+    width: 916px; /* Les headers et sections occupent 916px (taille de la bannière) */
+    display: flex; /* Ce conteneur est "flexible" */
+    flex-direction: column; /* Les éléments sont empilés */
+}
+
+nav input {
+    display: none;
+}
+
+nav ul {
+    display: flex; /* Ce conteneur est "flexible" */
+    flex-direction: row; /* Les éléments sont mis côte à côte */
+    justify-content: space-between; /* Les éléments sont répartis équitablement */
+    background-color: black; /* Couleur du fond */
+}
+nav ul li {
+    display: flex; /* Ce conteneur est "flexible" */
+    justify-content: center; /* Les éléments portés sont centrés à l'horizontal */
+    list-style-type: none; /* Cette liste n'a pas de puce */
+    font-size: x-large; /* Le texte est grossi en XL */
+    flex-grow: 1; /* L'espace occupé est élargie */
+}
+
+nav ul li a {
+    padding: 10px; /* Marge intérieure */
+    color: white; /* Couleur du texte */
+}
+nav ul li:hover {
+    background-color:#9a330a; /* Couleur du fond au passage de la souris */
+}
